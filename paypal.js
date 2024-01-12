@@ -62,7 +62,7 @@ const PayPal = (props) => {
         <View style={[styles.paypalCont, { width: width / 1.08, height: height / 2.3 }, { ...props?.popupContainerStyle }]}>
           <View style={styles.innerCont}>
             {loader && <View style={styles.loader}>
-              <ActivityIndicator size="large" color="#fff" />
+              <ActivityIndicator size="large" color="#000" />
             </View>}
             <View style={{ flex: 1 }}>
               {
@@ -114,20 +114,11 @@ const styles = StyleSheet.create({
   },
   paypalCont: {
     position: 'absolute',
-    borderRadius: 10,
     // bottom: 0,
     backgroundColor: '#fff',
     zIndex: 99999999999999,
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
   },
   innerCont: {
     paddingTop: 50,
@@ -139,7 +130,6 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     backgroundColor: '#fff',
-    borderRadius: 10,
     alignSelf: 'center',
     marginVertical: 10,
     alignItems: 'center',
