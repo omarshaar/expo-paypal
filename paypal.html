@@ -10,16 +10,15 @@
 </head>
 
 
-
 <body>
     <!-- Set up a container element for the button -->
     <div id="cont">
         <div id="paypal-button-container"></div>
-        <div id="p">hello</div>
+        <div id="p"></div>
     </div>
 
     <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=ARRqlfA6keAeDB0J0evltl_M9KGn6ctcn4XP80otC9yZjHfYUhG3mGDBpw2wcKRrIiXHQo9Vba4gQ7w9&currency=EUR"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Aa1K_OPV7CbP-NzpHLJT2giyyBYNOf3tvDmZhBMfRGFIHVpNn5Wqn61GTGD_Vp4aeZXqyxxCUbO2B8-E&currency=EUR"></script>
 
     <script>
         // Render the PayPal button into #paypal-button-container
@@ -44,7 +43,7 @@
                         // Successful capture! For demo purposes:
                         console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
                         var transaction = orderData.purchase_units[0].payments.captures[0];
-                        window.ReactNativeWebView.postMessage(JSON.stringify({status:transaction.status,orderID:transaction.id}))
+                        window.ReactNativeWebView.postMessage(JSON.stringify({status:transaction.status,orderID:transaction.id, transaction: transaction}))
                     });
                 }
 
