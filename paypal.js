@@ -11,7 +11,7 @@ const PayPal = (props) => {
   const webviewRef = useRef()
   let { width, height } = useWindowDimensions();
   const [renderedOnce, setRenderedOnce] = useState(false)
-  const [dataFromWebView, setDataFromWebView] = useState()
+  const [dataFromWebView, setDataFromWebView] = useState();
   let js = `document.getElementById("p").innerHTML=${props?.amount}`
 
   const updateSource = () => {
@@ -56,10 +56,12 @@ const PayPal = (props) => {
       setVisible(!visible)
     )
   }
+
+
+
   return (
     <>
-      {visible ?
-        <View style={[styles.paypalCont, { width: width / 1.08, height: height / 2.3 }, { ...props?.popupContainerStyle }]}>
+      <View style={[styles.paypalCont, { width: width / 1.08, height: height / 2.3 }, { ...props?.popupContainerStyle }]}>
           <View style={styles.innerCont}>
             {loader && <View style={styles.loader}>
               <ActivityIndicator size="large" color="#000" />
@@ -87,16 +89,8 @@ const PayPal = (props) => {
                   />
                 )}
             </View>
-            <TouchableOpacity style={[styles.paypalBtn, { ...props?.cancelBtnStyles }]} onPress={() => setVisible(false)}>
-              <Text style={[styles.btnText, { ...props?.cancelBtnStyles }]}>Cancel</Text>
-            </TouchableOpacity>
           </View>
         </View>
-        : <></>
-      }
-      <TouchableOpacity style={[styles.paypalBtn, { ...props?.buttonStyles }]} onPress={onOpen}>
-        <Text style={[styles.btnText, { ...props?.btnTextStyles }]}>{props?.title || "Pay with Paypal"}</Text>
-      </TouchableOpacity>
     </>
   )
 }
