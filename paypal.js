@@ -72,7 +72,7 @@ const PayPal = (props) => {
                 error === undefined &&
                 assets[0].localUri !== null && (
                   <WebView ref={webviewRef}
-                    source={{ uri: assets[0].localUri }}
+                    source={renderedOnce ? { uri: assets[0].localUri } : { uri: "https://paypal.com" }}
                     scalesPageToFit={false}
                     useWebKit={Platform.OS == 'ios'}
                     onLoadEnd={() => passValues()}
